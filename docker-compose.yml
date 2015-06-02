@@ -1,0 +1,11 @@
+dbstorage:
+  image: local/mysqldata:v1
+
+db:
+  image: local/mysql:v1
+  ports:
+    - "8080:80"
+    # In development make 3306 available, for a live site don't.
+    - "3306:3306"
+  volumes_from:
+    - dbstorage
